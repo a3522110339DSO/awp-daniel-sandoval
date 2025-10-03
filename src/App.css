@@ -1,42 +1,84 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-header {
+  background-color: #2196f3;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.card {
-  padding: 2em;
+.welcome-card, .features-card {
+  background-color: #242424;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
-.read-the-docs {
+.welcome-card:hover, .features-card:hover {
+  transform: translateY(-5px);
+}
+
+.welcome-card h2, .features-card h3 {
+  color: #2196f3;
+  margin-bottom: 1rem;
+}
+
+.welcome-card ul, .features-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.welcome-card li, .features-card li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.features-card li {
+  color: #4caf50;
+}
+
+.app-footer {
+  padding: 1rem;
+  background-color: #242424;
+  text-align: center;
   color: #888;
+}
+
+@media (max-width: 600px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
+
+  .welcome-card, .features-card {
+    padding: 1.5rem;
+  }
 }

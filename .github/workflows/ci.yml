@@ -1,0 +1,35 @@
+name: CI
+
+# Controla cuándo se ejecuta el workflow
+on:
+  # Se ejecuta en pushes a la rama main
+  push:
+    branches: [ main ]
+  # Se ejecuta en pull requests hacia la rama main
+  pull_request:
+    branches: [ main ]
+
+# Un workflow se compone de uno o más jobs
+jobs:
+  build:
+    # El tipo de máquina virtual donde se ejecutará
+    runs-on: ubuntu-latest
+
+    # Los pasos que componen el job
+    steps:
+      # 1. Descarga tu código del repositorio
+      - uses: actions/checkout@v4
+
+      # 2. Configura la versión de Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Usa una versión LTS actual
+
+      # 3. Instala las dependencias del proyecto
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Compila el proyecto para producción
+      - name: Build project
+        run: npm run build
