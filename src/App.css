@@ -19,6 +19,43 @@
   color: white;
 }
 
+.app-header p {
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+.app-nav {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  border-radius: 999px;
+}
+
+.app-nav__button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.app-nav__button:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.app-nav__button--active {
+  background: linear-gradient(90deg, #2196f3, #21cbf3);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+}
+
 .app-main {
   flex: 1;
   padding: 2rem;
@@ -27,39 +64,257 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
-.welcome-card, .features-card {
+.status-banner {
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.status-banner--offline {
+  background: rgba(244, 67, 54, 0.1);
+  color: #ff867c;
+  border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.status-banner--online {
+  background: rgba(76, 175, 80, 0.1);
+  color: #9ef796;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.card {
   background-color: #242424;
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  text-align: left;
 }
 
-.welcome-card:hover, .features-card:hover {
-  transform: translateY(-5px);
+.card h2 {
+  margin-top: 0;
+  color: #64b5f6;
 }
 
-.welcome-card h2, .features-card h3 {
-  color: #2196f3;
+.card p {
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 1.5rem;
+}
+
+.push-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.welcome-card ul, .features-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
+.push-actions__button {
+  background: linear-gradient(90deg, #42a5f5, #478ed1);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.welcome-card li, .features-card li {
-  margin: 0.5rem 0;
+.push-actions__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.push-actions__button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(66, 165, 245, 0.35);
+}
+
+.push-actions__button--ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+.push-actions__button--secondary {
+  background: linear-gradient(90deg, #26c6da, #00acc1);
+}
+
+.subscription-box {
+  background: rgba(17, 25, 40, 0.6);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow-x: auto;
+}
+
+.subscription-box__title {
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+}
+
+.subscription-box pre {
+  margin: 0;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: rgba(255,255,255,0.75);
+}
+
+.hero-card {
+  text-align: center;
+}
+
+.hero-card h2 {
+  font-size: 2rem;
+  color: #90caf9;
+}
+
+.hero-card p {
+  margin-bottom: 0;
   font-size: 1.1rem;
 }
 
-.features-card li {
-  color: #4caf50;
+.features-card h3 {
+  margin-top: 0;
+  color: #42a5f5;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.features-list li {
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+
+.task-form__field input,
+.task-form__field textarea {
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(18,18,18,0.9);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.task-form__field input:focus,
+.task-form__field textarea:focus {
+  outline: none;
+  border-color: rgba(33, 150, 243, 0.7);
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.task-form__submit {
+  align-self: flex-end;
+  background: linear-gradient(90deg, #2196f3, #21cbf3);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-form__submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.35);
+}
+
+.form-error {
+  color: #ff867c;
+  font-weight: 500;
+}
+
+.hint {
+  color: rgba(255,255,255,0.6);
+}
+
+.tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tasks-list__item {
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(18,18,18,0.85);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tasks-list__item header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tasks-list__item h3 {
+  margin: 0;
+  color: #bbdefb;
+}
+
+.tasks-list__item time {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.tasks-list__item p {
+  margin: 0;
+  color: rgba(255,255,255,0.75);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(76, 175, 80, 0.15);
+  color: #9ef796;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge--pending {
+  background: rgba(255, 167, 38, 0.15);
+  color: #ffcc80;
+  border: 1px solid rgba(255, 167, 38, 0.3);
 }
 
 .app-footer {
@@ -78,7 +333,18 @@
     padding: 1rem;
   }
 
-  .welcome-card, .features-card {
+  .card {
     padding: 1.5rem;
+  }
+
+  .app-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .push-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
